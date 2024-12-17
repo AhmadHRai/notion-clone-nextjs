@@ -1,19 +1,31 @@
 "use client";
 
+import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, MenuIcon } from "lucide-react";
+import { useMutation, useQuery } from "convex/react";
+import {
+  ChevronLeft,
+  MenuIcon,
+  PlusCircle,
+  Search,
+  Settings,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ComponentRef, useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import { useMediaQuery } from "usehooks-ts";
+import Item from "./item";
+import UserItem from "./user-item";
 
 export default function Navigation() {
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const documents = useQuery(api.documents.get);
+  const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ComponentRef<"aside">>(null);
   const navbarRef = useRef<ComponentRef<"div">>(null);
-  // const sidebarRef = useRef<ElementRef<"aside">>(null);
   const [isResetting, setIsRestting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
@@ -95,6 +107,18 @@ export default function Navigation() {
     }
   };
 
+  const handleCreate = () => {
+    const promise = create({
+      title: "Untitled",
+    });
+
+    toast.promise(promise, {
+      loading: "Creating new note...",
+      success: "Note created!",
+      error: "Failed to create new note.",
+    });
+  };
+
   return (
     <>
       <aside
@@ -116,10 +140,13 @@ export default function Navigation() {
           <ChevronLeft className="h-6 w-6" />
         </div>
         <div>
-          <p>Action Items</p>
+          <UserItem />
+          <Item onClick={handleCreate} label="New Page" icon={PlusCircle} />
+          <Item label="Search" icon={Search} isSearch onClick={() => {}} />
+          <Item label="Settings" icon={Settings} onClick={() => {}} />
         </div>
         <div className="mt-4">
-          <p>Documents</p>
+          {documents?.map((doc) => <p key={doc._id}>{doc.title}</p>)}
         </div>
         <div
           onMouseDown={handleMouseDown}

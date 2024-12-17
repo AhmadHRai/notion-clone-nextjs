@@ -1,3 +1,4 @@
+import { APP_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
@@ -24,7 +25,7 @@ export default function Logo() {
         alt="logo"
         className="hidden dark:block"
       />
-      <p className={cn("font-semibold", font.className)}>Jotion</p>
+      <p className={cn("font-semibold", font.className)}>{APP_NAME}</p>
     </div>
   );
 }

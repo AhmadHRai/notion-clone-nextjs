@@ -2,6 +2,7 @@
 
 import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
+import { APP_NAME } from "@/lib/constants";
 import { SignInButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
@@ -14,10 +15,10 @@ export default function Heading() {
     <div className="max-w-3xl space-y-4">
       <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
         Your Ideas, Documents, & Plans. Unified. Welcome to{" "}
-        <span className="underline">Jotion</span>
+        <span className="underline">{APP_NAME}</span>
       </h1>
       <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-        Jotion is the connected workspace where <br />
+        {APP_NAME} is the connected workspace where <br />
         better, faster work happens
       </h3>
       {isLoading && (
@@ -29,7 +30,7 @@ export default function Heading() {
       {isAuthenticated && !isLoading && (
         <Button asChild>
           <Link href="/documents">
-            Enter Jotion
+            Enter {APP_NAME}
             <ArrowRight className="h-4  w-4 ml-2" />
           </Link>
         </Button>
@@ -38,7 +39,7 @@ export default function Heading() {
       {!isAuthenticated && !isLoading && (
         <SignInButton mode="modal">
           <Button>
-            Get Jotion Free
+            Get {APP_NAME} Free
             <ArrowRight className="h-4  w-4 ml-2" />
           </Button>
         </SignInButton>

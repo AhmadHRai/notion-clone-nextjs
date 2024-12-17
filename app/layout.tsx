@@ -1,7 +1,10 @@
-import { ConvexClientProvider } from "@/components/providers/convex-provider";
-import { ThemeProvider } from "@/components/providers/theme-provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Toaster } from "sonner";
+
+import { ConvexClientProvider } from "@/components/providers/convex-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { APP_NAME } from "@/lib/constants";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -16,7 +19,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jotion",
+  title: APP_NAME,
   description: "The connected workspace where better, faster work happens",
   icons: {
     icon: [
@@ -50,8 +53,9 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-            storageKey="jotion-theme"
+            storageKey={`${APP_NAME}-theme`}
           >
+            <Toaster position="bottom-center" />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>

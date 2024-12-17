@@ -4,6 +4,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import useScrollTop from "@/hooks/use-scroll-top";
+import { APP_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
@@ -32,14 +33,14 @@ export default function Navbar() {
               </Button>
             </SignInButton>
             <SignInButton mode="modal">
-              <Button size="sm">Get Jotion Free</Button>
+              <Button size="sm">Get {APP_NAME} Free</Button>
             </SignInButton>
           </>
         )}
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm">
-              <Link href="/documents">Enter Jotion</Link>
+              <Link href="/documents">Enter {APP_NAME}</Link>
             </Button>
             <UserButton afterSwitchSessionUrl="/" />
           </>
