@@ -2,7 +2,7 @@
 
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import {
   ChevronLeft,
   MenuIcon,
@@ -14,13 +14,13 @@ import { usePathname } from "next/navigation";
 import { ComponentRef, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useMediaQuery } from "usehooks-ts";
+import DocumentList from "./document-list";
 import Item from "./item";
 import UserItem from "./user-item";
 
 export default function Navigation() {
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const documents = useQuery(api.documents.get);
   const create = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -146,7 +146,7 @@ export default function Navigation() {
           <Item label="Settings" icon={Settings} onClick={() => {}} />
         </div>
         <div className="mt-4">
-          {documents?.map((doc) => <p key={doc._id}>{doc.title}</p>)}
+          <DocumentList />
         </div>
         <div
           onMouseDown={handleMouseDown}
