@@ -30,6 +30,11 @@ export default function Item({
   onExpand,
   expanded,
 }: ItemProps) {
+  const handleExpand = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    onExpand?.();
+  };
+
   const ChevronIcon = expanded ? ChevronDown : ChevronRight;
   return (
     <div
@@ -44,6 +49,7 @@ export default function Item({
       {!!id && (
         <div
           role="button"
+          onClick={handleExpand}
           className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
         >
           <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />
@@ -67,10 +73,8 @@ export default function Item({
 Item.Skeleton = function ItemSkeleton({ level }: { level?: number }) {
   return (
     <div
-      style={{
-        paddingLeft: level ? `${level * 12 + 25}px` : "12px",
-      }}
       className="flex gap-x-2 py-[3px]"
+      style={{ paddingLeft: level ? `${level * 12 + 25}px` : "12px" }}
     >
       <Skeleton className="h-4 w-4" />
       <Skeleton className="h-4 w-[30%]" />

@@ -23,7 +23,7 @@ export default function DocumentList({
   const router = useRouter();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
-  const onExpand = (documentId: string) => () => {
+  const onExpand = (documentId: string) => {
     setExpanded((prev) => ({
       ...prev,
       [documentId]: !prev[documentId],
@@ -56,22 +56,20 @@ export default function DocumentList({
   return (
     <>
       <p
-        style={{
-          paddingLeft: level ? `${level * 12 + 25}px` : undefined,
-        }}
         className={cn(
-          "hidden text-sm font-medium text-muted-foreground/80",
+          `hidden text-sm font-medium text-muted-foreground/80`,
           expanded && "last:block",
           level === 0 && "hidden"
         )}
+        style={{ paddingLeft: level ? `${level * 12 + 25}px` : undefined }}
       >
-        No pages inside
+        No pages available
       </p>
       {documents.map((document) => (
         <div key={document._id}>
           <Item
             id={document._id}
-            onClick={onRedirect(document._id)}
+            onClick={() => onRedirect(document._id)}
             label={document.title}
             icon={FileIcon}
             documentIcon={document.icon}
