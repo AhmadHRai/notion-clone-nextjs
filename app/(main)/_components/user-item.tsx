@@ -2,7 +2,7 @@
 
 import { ChevronsLeftRight } from "lucide-react";
 
-import { Avatar } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { APP_NAME } from "@/lib/constants";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
-import { AvatarImage } from "@radix-ui/react-avatar";
 
 export default function UserItem() {
   const { user } = useUser();
@@ -22,8 +21,7 @@ export default function UserItem() {
       <DropdownMenuTrigger asChild>
         <div
           className="flex items-center text-sm p-3 w-full hover:bg-primary/5"
-          role="button"
-        >
+          role="button">
           <div className="gap-x-2 flex items-center max-w-[150px]">
             <Avatar className="w-5 h-5">
               <AvatarImage src={user?.imageUrl} />
@@ -39,8 +37,7 @@ export default function UserItem() {
         className="w-80"
         align="start"
         alignOffset={11}
-        forceMount
-      >
+        forceMount>
         <div className="flex flex-col space-y-4 p-2">
           <p className="text-xs font-medium leading-none text-muted-foreground">
             {user?.emailAddresses[0].emailAddress}
@@ -61,8 +58,7 @@ export default function UserItem() {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="w-full cursor-pointer text-muted-foreground"
-          asChild
-        >
+          asChild>
           <SignOutButton>Log out</SignOutButton>
         </DropdownMenuItem>
       </DropdownMenuContent>
