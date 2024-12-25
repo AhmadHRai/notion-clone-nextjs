@@ -34,10 +34,6 @@ export default function DocumentList({
     parentDocument: parentDocumentId,
   });
 
-  const onRedirect = (documentId: string) => () => {
-    router.push(`/documents/${documentId}`);
-  };
-
   // if documents is Loading, if error then documents will be null
   if (documents === undefined) {
     return (
@@ -69,7 +65,9 @@ export default function DocumentList({
         <div key={document._id}>
           <Item
             id={document._id}
-            onClick={() => onRedirect(document._id)}
+            onClick={() => {
+              router.push(`/documents/${document._id}`);
+            }}
             label={document.title}
             icon={FileIcon}
             documentIcon={document.icon}
