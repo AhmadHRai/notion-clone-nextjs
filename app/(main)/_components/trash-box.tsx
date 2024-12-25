@@ -90,7 +90,7 @@ export default function TrashBox() {
             <div className="flex items-center">
               <div
                 role="button"
-                className="rounded-sm p-2 hover:bg-neutral-200"
+                className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
                 onClick={(e) => onRestore(e, document._id)}
               >
                 <Undo className="h-4 w-4 text-muted-foreground" />
@@ -98,7 +98,7 @@ export default function TrashBox() {
               <ConfirmModal onConfirm={() => onRemove(document._id)}>
                 <div
                   role="button"
-                  className="rounded-sm p-2 hover:bg-neutral-200"
+                  className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
                 >
                   <Trash className="h-4 w-4 text-muted-foreground" />
                 </div>

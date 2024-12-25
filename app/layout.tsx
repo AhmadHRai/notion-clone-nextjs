@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
 import { APP_NAME } from "@/lib/constants";
 import "./globals.css";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
             storageKey={`${APP_NAME}-theme`}
           >
             <Toaster position="bottom-center" />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
