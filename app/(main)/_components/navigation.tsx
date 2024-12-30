@@ -20,7 +20,7 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ComponentRef, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import DocumentList from "./document-list";
@@ -30,6 +30,7 @@ import TrashBox from "./trash-box";
 import UserItem from "./user-item";
 
 export default function Navigation() {
+  const router = useRouter();
   const search = useSearch();
   const settings = useSettings();
 
@@ -124,9 +125,9 @@ export default function Navigation() {
   };
 
   const handleCreate = () => {
-    const promise = create({
-      title: "Untitled",
-    });
+    const promise = create({ title: "Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
 
     toast.promise(promise, {
       loading: "Creating new note...",
