@@ -1,1 +1,1 @@
-export const APP_NAME = "Jotion"; // Maybe Jibber or JustNote
+export const APP_NAME = "ByteSheet"; // Maybe Jotion, Jibber or JustNote
