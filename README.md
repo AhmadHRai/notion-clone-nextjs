@@ -34,9 +34,11 @@ This project is a web-based productivity tool inspired by Notion. It allows user
 - **Next.js**: A React framework for building server-side rendered applications
 - **React**: A JavaScript library for building user interfaces
 - **TypeScript**: A typed superset of JavaScript
+- **Tailwind CSS**: A utility-first CSS framework
 
 ### UI Libraries and Components
 
+- **Shadcn UI**: A collection of React components for building modern web applications
 - **Radix UI**: A low-level UI toolkit
 - **Blocknote**: A block-based editor for Next.js
 
@@ -96,8 +98,6 @@ We welcome contributions! To contribute to this project:
 
 ## License
 
-This project is open-source software licensed as MIT. See the [LICENSE](https://github.com/AhmadHRai/notion-clone-nextjs/blob/main/LICENSE
-) file for more information.
-
+This project is open-source software licensed as MIT. See the [LICENSE](https://github.com/AhmadHRai/notion-clone-nextjs/blob/main/LICENSE) file for more information.
 
 ---
