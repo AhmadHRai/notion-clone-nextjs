@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ByteSheet - A Next.js Based Productivity Tool
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Table of Contents
+
+1. [About](#about)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Getting Started](#getting-started)
+5. [Project Structure](#project-structure)
+6. [Contributing](#contributing)
+7. [License](#license)
+
+---
+
+## About
+
+This project is a web-based productivity tool inspired by Notion. It allows users to create, edit, and organize documents collaboratively. The application provides features like document creation, editing, preview and publishing, and user authentication.
+
+## Features
+
+- Document Creation and Editing
+- Collaborative Editing
+- Real-time Preview
+- User Authentication
+- Customizable UI
+- Task Management
+
+## Technologies Used
+
+### Core Frameworks and Libraries
+
+- **Next.js**: A React framework for building server-side rendered applications
+- **React**: A JavaScript library for building user interfaces
+- **TypeScript**: A typed superset of JavaScript
+
+### UI Libraries and Components
+
+- **Radix UI**: A low-level UI toolkit
+- **Blocknote**: A block-based editor for Next.js
+
+### Backend and Database
+
+- **Convex**: A real-time database for Next.js applications
+- **Edgestore**: A serverless backend for Next.js
+
+### Authentication
+
+- **Clerk**: A developer-first authentication platform
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository:
+   ```bash
+   https://github.com/AhmadHRai/notion-clone-nextjs.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd notion-clone-nextjs
+   ```
+3. Install dependencies:
+   ```
+   npm install or pnpm install or whichever way you want
+   ```
+4. Set up environment variables:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   - Copy `.env.example` to `.env`
+   - Fill in the required environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Start the development server:
+   ```
+   npm run dev
+   ```
+   or
+   ```
+   pnpm dev
+   ```
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+7. You can start editing the page by modifying `app/(marketing)/page.tsx`. The page auto-updates as you edit the file.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+We welcome contributions! To contribute to this project:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'feature(scope): Add some Feature'`)
+4. Push to the branch (`git push origin feature`)
+5. Open a Pull Request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is open-source software licensed as MIT. See the [LICENSE](https://github.com/AhmadHRai/notion-clone-nextjs/blob/main/LICENSE
+) file for more information.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---

@@ -31,7 +31,8 @@ export default function DocumentIdPage({ params }: DocumentIdPageProps) {
   });
 
   const toggleTheme = () => {
-    theme === "dark" ? setTheme("light") : setTheme("dark");
+    if (theme === "dark") setTheme("light");
+    else setTheme("dark");
   };
 
   if (document === undefined) {
