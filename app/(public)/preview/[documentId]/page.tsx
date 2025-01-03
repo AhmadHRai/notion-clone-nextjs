@@ -10,6 +10,8 @@ import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
 import { use } from "react";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 interface DocumentIdPageProps {
   params: Promise<{
@@ -17,6 +19,8 @@ interface DocumentIdPageProps {
   }>;
 }
 export default function DocumentIdPage({ params }: DocumentIdPageProps) {
+  const { theme, setTheme } = useTheme();
+
   const Editor = useMemo(
     () => dynamic(() => import("@/components/editor"), { ssr: false }),
     []
@@ -25,6 +29,10 @@ export default function DocumentIdPage({ params }: DocumentIdPageProps) {
   const document = useQuery(api.documents.getById, {
     documentId: documentId,
   });
+
+  const toggleTheme = () => {
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+  };
 
   if (document === undefined) {
     return (
@@ -57,6 +65,13 @@ export default function DocumentIdPage({ params }: DocumentIdPageProps) {
           initialContent={document.content}
         />
       </div>
+      <button
+        className="fixed bottom-6 right-6 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-gray-400 border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-105 transition-all dark:bg-gray-950"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+      >
+        {theme === "light" ? <Moon /> : <Sun />}
+      </button>
     </div>
   );
 }
